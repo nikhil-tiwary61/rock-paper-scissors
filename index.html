@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="index.js" defer></script>
+    <!-- <script src="index.js" defer></script> -->
 </head>
 
 <body>
+    <label for="result">Points</label>
+    <input type="text" name="points">
+    <br>
     <div>Make Your Selection</div>
     <div class="container">
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissor</button>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissor</button>
     </div>
 
     <label for="result">Computer's Selection</label>
@@ -23,6 +26,10 @@
 
     <label for="result">Result</label>
     <input type="text" name="name">
+    <br>
+
+    <button id="paly">Play</button>
+    <button id="newgame">New Game</button>
 
     <!-- <script type="text/javascript" src="theJs.js"></script> -->
     <!-- <script src="demo_defer.js" defer></script> -->
