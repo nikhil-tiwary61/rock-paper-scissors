@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    height: 10vh;
+    text-align: center;
+}
+.upper{
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+}
+.choices{
+    
+}
+.score{
+    text-align: center;
+}
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px 30px;
+}
+.middle{
+    height: 20vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+}
+.lower{
+    height: 20vh;
+    text-align: center;
+}
+footer{
+    text-align: center;
+}

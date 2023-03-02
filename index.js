@@ -3,19 +3,22 @@ const drawMessage = "It's a draw";
 const winMessage = "You win!";
 const loseMessage = "You lose :(";
 const invalidMessage = "Invalid Input";
-let playerSelection, computerSelection;
+let playerSelection,
+  computerSelection,
+  playerScore = 0,
+  computerScore = 0;
 
 function getComputerChoice() {
   let choiceIndex = Math.floor(Math.random() * 3);
   return choices[choiceIndex];
 }
 
-function getPlayerChoice(e) {
-  if (this.id == "rock") {
+function getPlayerChoice(obj) {
+  if (obj.id == "rock") {
     return "rock";
-  } else if (this.id == "paper") {
+  } else if (obj.id == "paper") {
     return "paper";
-  } else if (this.id == "scissor") {
+  } else if (obj.id == "scissor") {
     return "scissor";
   }
 }
@@ -28,63 +31,37 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == choices[1] && computerSelection == choices[0]) ||
     (playerSelection == choices[2] && computerSelection == choices[1])
   ) {
+    playerScore += 1;
     return winMessage;
   } else {
+    computerScore += 1;
     return loseMessage;
   }
 }
 
 function game(e) {
-  playerSelection = getPlayerChoice();
+  playerSelection = getPlayerChoice(this);
   computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
+  document.querySelector(".playerDecision").innerHTML = playerSelection;
+  document.querySelector(".computerDecision").innerHTML = computerSelection;
+  document.querySelector(".result").innerHTML = playRound(
+    playerSelection,
+    computerSelection
+  );
+  document.querySelector(".playerScore").innerHTML = playerScore;
+  document.querySelector(".computerScore").innerHTML = computerScore;
+  //   console.log(playerScore + computerScore);
+  console.log(e);
+
+  fs.readFile("db.txt", function (err, data) {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write(data);
+    console.log("--->", data);
+    return res.end();
+  });
 }
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
   button.addEventListener("click", game);
 });
-
-// function playRound(playerSelection, computerSelection) {
-//   console.log(
-//     "Player chose: " +
-//       playerSelection +
-//       "\nComputer chose: " +
-//       computerSelection
-//   );
-//   if (playerSelection == computerSelection) {
-//     return drawMessage;
-//   }
-//   if (
-//     (playerSelection == choices[0] && computerSelection == choices[2]) ||
-//     (playerSelection == choices[1] && computerSelection == choices[0]) ||
-//     (playerSelection == choices[2] && computerSelection == choices[1])
-//   ) {
-//     return winMessage;
-//   }
-//   return loseMessage;
-// }
-
-// function isValidSelection(playerSelection) {
-//   if (playerSelection == null) return false;
-//   playerSelection = playerSelection.toLowerCase();
-//   for (let i = 0; i < 3; i++) {
-//     if (choices[i] == playerSelection) return true;
-//   }
-//   return false;
-// }
-
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     let playerSelection = prompt("Enter your choice:");
-//     if (isValidSelection(playerSelection) == false) {
-//       console.log(invalidMessage);
-//       continue;
-//     }
-//     playerSelection = playerSelection.toLowerCase();
-//     let computerSelection = getComputerChoice();
-//     console.log(playRound(playerSelection, computerSelection));
-//   }
-// }
-
-// game();
