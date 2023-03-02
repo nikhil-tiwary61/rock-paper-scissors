@@ -44,6 +44,26 @@ function game(e) {
   computerSelection = getComputerChoice();
   document.querySelector(".playerDecision").innerHTML = playerSelection;
   document.querySelector(".computerDecision").innerHTML = computerSelection;
+  if (playerSelection == "rock") {
+    document.querySelector(".playerDecision").innerHTML =
+      "<img src='images/rock-30.png' alt='Rock'>";
+  } else if (playerSelection == "paper") {
+    document.querySelector(".playerDecision").innerHTML =
+      "<img src='images/paper-30.png' alt='Rock'>";
+  } else if (playerSelection == "scissor") {
+    document.querySelector(".playerDecision").innerHTML =
+      "<img src='images/scissors-30.png' alt='Rock'>";
+  }
+  if (computerSelection == "rock") {
+    document.querySelector(".computerDecision").innerHTML =
+      "<img src='images/rock-30.png' alt='Rock'>";
+  } else if (computerSelection == "paper") {
+    document.querySelector(".computerDecision").innerHTML =
+      "<img src='images/paper-30.png' alt='Rock'>";
+  } else if (computerSelection == "scissor") {
+    document.querySelector(".computerDecision").innerHTML =
+      "<img src='images/scissors-30.png' alt='Rock'>";
+  }
   document.querySelector(".result").innerHTML = playRound(
     playerSelection,
     computerSelection
