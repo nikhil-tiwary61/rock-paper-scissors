@@ -6,7 +6,8 @@ const invalidMessage = "Invalid Input";
 let playerSelection,
   computerSelection,
   playerScore = 0,
-  computerScore = 0;
+  computerScore = 0,
+  winningMessage = "";
 
 function getComputerChoice() {
   let choiceIndex = Math.floor(Math.random() * 3);
@@ -38,6 +39,17 @@ function playRound(playerSelection, computerSelection) {
     return loseMessage;
   }
 }
+
+// function displayMessage() {
+//   let message = `<div class="winner">${winningMessage}</div>
+//   <div><button class="newgame">NEW GAME</button></div>`;
+//   body.innerHTML = message;
+//   document.getElementById("newgame").addEventListener("click", pageReload);
+// }
+
+// function pageReload() {
+//   window.location.reload();
+// }
 
 function game(e) {
   playerSelection = getPlayerChoice(this);
@@ -73,6 +85,16 @@ function game(e) {
   //Updates score
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
+
+  // if (playerScore == 3) {
+  //   winningMessage = "YAY! You Win.";
+  // }
+  // if (computerScore == 3) {
+  //   winningMessage = "You lost against a bot";
+  // }
+  // if (Math.max(playerScore, computerScore) == 3) {
+  //   displayMessage();
+  // }
 }
 
 const buttons = document.querySelectorAll("button");
