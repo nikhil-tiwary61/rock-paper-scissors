@@ -44,6 +44,7 @@ function game(e) {
   computerSelection = getComputerChoice();
   document.querySelector(".playerDecision").innerHTML = playerSelection;
   document.querySelector(".computerDecision").innerHTML = computerSelection;
+  //Display player's choice
   if (playerSelection == "rock") {
     document.querySelector(".playerDecision").innerHTML =
       "<img src='images/rock-30.png' alt='Rock'>";
@@ -54,6 +55,7 @@ function game(e) {
     document.querySelector(".playerDecision").innerHTML =
       "<img src='images/scissors-30.png' alt='Rock'>";
   }
+  //Display computer's choice
   if (computerSelection == "rock") {
     document.querySelector(".computerDecision").innerHTML =
       "<img src='images/rock-30.png' alt='Rock'>";
@@ -68,17 +70,9 @@ function game(e) {
     playerSelection,
     computerSelection
   );
+  //Updates score
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
-  //   console.log(playerScore + computerScore);
-  console.log(e);
-
-  fs.readFile("db.txt", function (err, data) {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write(data);
-    console.log("--->", data);
-    return res.end();
-  });
 }
 
 const buttons = document.querySelectorAll("button");
