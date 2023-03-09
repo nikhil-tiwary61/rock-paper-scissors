@@ -40,16 +40,16 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// function displayMessage() {
-//   let message = `<div class="winner">${winningMessage}</div>
-//   <div><button class="newgame">NEW GAME</button></div>`;
-//   body.innerHTML = message;
-//   document.getElementById("newgame").addEventListener("click", pageReload);
-// }
+function displayMessage() {
+  let message = `<div class="winner">${winningMessage}</div>
+  <div><button class="newgame">NEW GAME</button></div>`;
+  document.body.innerHTML = message;
+  document.querySelector(".newgame").addEventListener("click", pageReload);
+}
 
-// function pageReload() {
-//   window.location.reload();
-// }
+function pageReload(e) {
+  window.location.reload();
+}
 
 function game(e) {
   playerSelection = getPlayerChoice(this);
@@ -86,15 +86,15 @@ function game(e) {
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
 
-  // if (playerScore == 3) {
-  //   winningMessage = "YAY! You Win.";
-  // }
-  // if (computerScore == 3) {
-  //   winningMessage = "You lost against a bot";
-  // }
-  // if (Math.max(playerScore, computerScore) == 3) {
-  //   displayMessage();
-  // }
+  if (playerScore == 3) {
+    winningMessage = "YAY! You Win.";
+  }
+  if (computerScore == 3) {
+    winningMessage = "You lost against a bot";
+  }
+  if (Math.max(playerScore, computerScore) == 3) {
+    displayMessage();
+  }
 }
 
 const buttons = document.querySelectorAll("button");
