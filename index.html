@@ -14,41 +14,29 @@
     <header></header>
     <main>
         <h1>Rock Paper Scissor</h1>
-        <div class="upper">
+        <div class="main-page">
+            <div class="description">First to score 5 points wins.</div>
             <div class="choices">
                 <div>Make Your Selection</div>
                 <div class="container">
-                    <button id="rock"><img src="images/rock-30.png" alt="Rock"></button>
-                    <button id="paper"><img src="images/paper-30.png" alt="Paper"></button>
-                    <button id="scissor"><img src="images/scissors-30.png" alt="Scissor"></button>
+                    <button id="rock" class="image"><img src="images/rock-30.png" alt="Rock"></button>
+                    <button id="paper" class="image"><img src="images/paper-30.png" alt="Paper"></button>
+                    <button id="scissor" class="image"><img src="images/scissors-30.png" alt="Scissor"></button>
                 </div>
             </div>
-            <div class="score">
-                <div>Score</div>
-                <div class="grid">
-                    <div>Player</div>
-                    <div>Computer</div>
-                    <div class="playerScore">0</div>
-                    <div class="computerScore">0</div>
-                </div>
+            <div class="arena">
+                <div class="playerDecision image"></div>
+                <div class="computerDecision image"></div>
+                <div>Player</div>
+                <div>Computer</div>
+                <div class="playerScore">0</div>
+                <div class="computerScore">0</div>
             </div>
-        </div>
-        <div class="middle">
-            <div class="playerDecision"></div>
-            <div class="computerDecision"></div>
-            <div>Player</div>
-            <div>Computer</div>
-        </div>
-
-        <div class="lower">
-            <div class="result"></div>
         </div>
     </main>
-    <!-- <footer>
-        &#169; Nikhil Tiwary
-    </footer> -->
-
-
+    <footer>
+        <div class="result"></div>
+    </footer>
     <script src="index.js"></script>
 </body>
 

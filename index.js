@@ -86,13 +86,13 @@ function game(e) {
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
 
-  if (playerScore == 3) {
+  if (playerScore == 5) {
     winningMessage = "YAY! You Win.";
   }
-  if (computerScore == 3) {
+  if (computerScore == 5) {
     winningMessage = "You lost against a bot";
   }
-  if (Math.max(playerScore, computerScore) == 3) {
+  if (Math.max(playerScore, computerScore) == 5) {
     displayMessage();
   }
 }
