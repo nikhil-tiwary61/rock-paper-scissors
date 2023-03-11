@@ -86,15 +86,11 @@ function game(e) {
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
 
-  if (playerScore == 5) {
-    winningMessage = "YAY! You Win.";
-  }
-  if (computerScore == 5) {
-    winningMessage = "You lost against a bot";
-  }
-  if (Math.max(playerScore, computerScore) == 5) {
-    displayMessage();
-  }
+  winningMessage =
+    Math.max(playerScore, computerScore) == 5 && playerScore == 5
+      ? "YAT! You Win."
+      : "You lost against a bot";
+  Math.max(playerScore, computerScore) == 5 ? displayMessage() : null;
 }
 
 const buttons = document.querySelectorAll("button");
