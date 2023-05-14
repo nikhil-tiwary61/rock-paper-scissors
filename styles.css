@@ -51,35 +51,33 @@ h3 {
 main > div > div > button {
     width: 7rem;
     height: inherit;
+    background-color: black;
 }
 
 #rock {
-    background-image: url(/images/rock-30.png);
+    background-image: url(/assets/rock.png);
     background-position: center;
-    background-color: white;
+    /* background-color: white; */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #paper {
-    background-image: url(/images/paper-30.png);
+    background-image: url(/assets/paper.png);
     background-position: center;
-    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #scissor {
-    background-image: url(/images/scissors-30.png);
+    background-image: url(/assets/scissors.png);
     background-position: center;
-    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .image {
     background-position: center;
-    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
 }
