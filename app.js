@@ -1,7 +1,5 @@
 const choices = ["rock", "paper", "scissor"];
 const drawMessage = "It's a draw";
-const winMessage = "You win!";
-const loseMessage = "You lose :(";
 const invalidMessage = "Invalid Input";
 let playerSelection,
   computerSelection,
@@ -33,9 +31,11 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == choices[2] && computerSelection == choices[1])
   ) {
     playerScore += 1;
+    let winMessage = `${playerSelection} beats ${computerSelection}`;
     return winMessage;
   } else {
     computerScore += 1;
+    let loseMessage = `${computerSelection} beats ${playerSelection}`;
     return loseMessage;
   }
 }
@@ -88,8 +88,8 @@ function game(e) {
 
   winningMessage =
     Math.max(playerScore, computerScore) == 5 && playerScore == 5
-      ? "YAT! You Win."
-      : "You lost against a bot";
+      ? "YAY! You Win."
+      : "You lose";
   Math.max(playerScore, computerScore) == 5 ? displayMessage() : null;
 }
 
