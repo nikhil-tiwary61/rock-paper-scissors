@@ -59,24 +59,24 @@ function game(e) {
   //Display player's choice
   if (playerSelection == "rock") {
     document.querySelector(".playerDecision").innerHTML =
-      "<img src='./assets/rock.png' alt='Rock'>";
+      "<img class='image-icon' src='./assets/rock.png' alt='Rock'>";
   } else if (playerSelection == "paper") {
     document.querySelector(".playerDecision").innerHTML =
-      "<img src='./assets/paper.png' alt='Paper'>";
+      "<img class='image-icon' src='./assets/paper.png' alt='Paper'>";
   } else if (playerSelection == "scissor") {
     document.querySelector(".playerDecision").innerHTML =
-      "<img src='./assets/scissors.png' alt='Scissors'>";
+      "<img class='image-icon' src='./assets/scissors.png' alt='Scissors'>";
   }
   //Display computer's choice
   if (computerSelection == "rock") {
     document.querySelector(".computerDecision").innerHTML =
-      "<img src='./assets/rock.png' alt='Rock'>";
+      "<img class='image-icon' src='./assets/rock.png' alt='Rock'>";
   } else if (computerSelection == "paper") {
     document.querySelector(".computerDecision").innerHTML =
-      "<img src='./assets/paper.png' alt='Paper'>";
+      "<img class='image-icon' src='./assets/paper.png' alt='Paper'>";
   } else if (computerSelection == "scissor") {
     document.querySelector(".computerDecision").innerHTML =
-      "<img src='./assets/scissors.png' alt='Scissors'>";
+      "<img class='image-icon' src='./assets/scissors.png' alt='Scissors'>";
   }
   document.querySelector(".result").innerHTML = playRound(
     playerSelection,
