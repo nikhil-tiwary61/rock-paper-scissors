@@ -57,6 +57,7 @@ main > div > div > button {
     width: 7rem;
     height: inherit;
     background-color: black;
+    border: 1px solid white;
 }
 
 #rock {
@@ -104,6 +105,38 @@ main > div > div > button {
     font-size: 24px;
 }
 
+.result-screen {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.winner {
+    height: 8rem;
+    font-size: 5rem;
+    font-family: sans-serif;
+}
+
+.newgame {
+    width: 10rem;
+    height: 3rem;
+    border-radius: 2rem;
+    background: linear-gradient(to right, blue, pink);
+}
+
+button:hover {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+    cursor: pointer;
+  }
+  
+  button:active {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+  
 /* for screen-width 320px or less (extremely small screen width) */
 @media screen and (max-width:320px) {
     .container{

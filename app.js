@@ -41,8 +41,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function displayMessage() {
-  let message = `<div class="winner">${winningMessage}</div>
-  <div><button class="newgame">NEW GAME</button></div>`;
+  let message = `<div class="result-screen"><div class="winner">${winningMessage}</div>
+  <div><button class="newgame">NEW GAME</button></div></div>`;
   document.body.innerHTML = message;
   document.querySelector(".newgame").addEventListener("click", pageReload);
 }
@@ -88,7 +88,7 @@ function game(e) {
 
   winningMessage =
     Math.max(playerScore, computerScore) == 5 && playerScore == 5
-      ? "YAY! You Win."
+      ? "YAY! You win."
       : "You lose";
   Math.max(playerScore, computerScore) == 5 ? displayMessage() : null;
 }
