@@ -1,13 +1,16 @@
+const gameWinSong = new Audio("assets/audio/victory.mp3");
+const gameLoseSong = new Audio("assets/audio/lose.mp3");
 const choices = ["rock", "paper", "scissor"];
 const drawMessage = "It's a draw";
-const winMessage = "You win!";
-const loseMessage = "You lose :(";
 const invalidMessage = "Invalid Input";
 let playerSelection,
   computerSelection,
   playerScore = 0,
   computerScore = 0,
   winningMessage = "";
+
+const playerTile = document.querySelector(".playerDecision");
+const computerTile = document.querySelector(".computerDecision");
 
 function getComputerChoice() {
   let choiceIndex = Math.floor(Math.random() * 3);
@@ -33,17 +36,20 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == choices[2] && computerSelection == choices[1])
   ) {
     playerScore += 1;
+    let winMessage = `${playerSelection} beats ${computerSelection}`;
     return winMessage;
   } else {
     computerScore += 1;
+    let loseMessage = `${computerSelection} beats ${playerSelection}`;
     return loseMessage;
   }
 }
 
-function displayMessage() {
-  let message = `<div class="winner">${winningMessage}</div>
-  <div><button class="newgame">NEW GAME</button></div>`;
+function displayMessage(win) {
+  let message = `<div class="result-screen"><div class="winner">${winningMessage}</div>
+  <div><button class="newgame">NEW GAME</button></div></div>`;
   document.body.innerHTML = message;
+  win ? gameWinSong.play() : gameLoseSong.play();
   document.querySelector(".newgame").addEventListener("click", pageReload);
 }
 
@@ -54,43 +60,48 @@ function pageReload(e) {
 function game(e) {
   playerSelection = getPlayerChoice(this);
   computerSelection = getComputerChoice();
-  document.querySelector(".playerDecision").innerHTML = playerSelection;
-  document.querySelector(".computerDecision").innerHTML = computerSelection;
+  playerTile.innerHTML = playerSelection;
+  computerTile.innerHTML = computerSelection;
   //Display player's choice
   if (playerSelection == "rock") {
-    document.querySelector(".playerDecision").innerHTML =
-      "<img src='images/rock-30.png' alt='Rock'>";
+    playerTile.innerHTML =
+      "<img class='image-icon' src='./assets/images/rock.png' alt='Rock'>";
   } else if (playerSelection == "paper") {
-    document.querySelector(".playerDecision").innerHTML =
-      "<img src='images/paper-30.png' alt='Rock'>";
+    playerTile.innerHTML =
+      "<img class='image-icon' src='./assets/images/paper.png' alt='Paper'>";
   } else if (playerSelection == "scissor") {
-    document.querySelector(".playerDecision").innerHTML =
-      "<img src='images/scissors-30.png' alt='Rock'>";
+    playerTile.innerHTML =
+      "<img class='image-icon' src='./assets/images/scissors.png' alt='Scissors'>";
   }
   //Display computer's choice
   if (computerSelection == "rock") {
-    document.querySelector(".computerDecision").innerHTML =
-      "<img src='images/rock-30.png' alt='Rock'>";
+    computerTile.innerHTML =
+      "<img class='image-icon' src='./assets/images/rock.png' alt='Rock'>";
   } else if (computerSelection == "paper") {
-    document.querySelector(".computerDecision").innerHTML =
-      "<img src='images/paper-30.png' alt='Rock'>";
+    computerTile.innerHTML =
+      "<img class='image-icon' src='./assets/images/paper.png' alt='Paper'>";
   } else if (computerSelection == "scissor") {
-    document.querySelector(".computerDecision").innerHTML =
-      "<img src='images/scissors-30.png' alt='Rock'>";
+    computerTile.innerHTML =
+      "<img class='image-icon' src='./assets/images/scissors.png' alt='Scissors'>";
   }
   document.querySelector(".result").innerHTML = playRound(
     playerSelection,
     computerSelection
   );
+
   //Updates score
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
 
-  winningMessage =
-    Math.max(playerScore, computerScore) == 5 && playerScore == 5
-      ? "YAT! You Win."
-      : "You lost against a bot";
-  Math.max(playerScore, computerScore) == 5 ? displayMessage() : null;
+  let win;
+  if (Math.max(playerScore, computerScore) == 5 && playerScore == 5) {
+    winningMessage = `YAY! You win`;
+    win = true;
+  } else {
+    winningMessage = `You lose`;
+    win = false;
+  }
+  Math.max(playerScore, computerScore) == 5 ? displayMessage(win) : null;
 }
 
 const buttons = document.querySelectorAll("button");

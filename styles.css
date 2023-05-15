@@ -2,27 +2,151 @@
     margin: 0;
     padding: 0;
 }
-h1{
-    height: 10vh;
-    text-align: center;
+
+main {
+    display: flex;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
 }
-.description{
-    text-align: center;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    width: 23rem;
 }
-.choices{
-    text-align: center;
-}
-.container{
+
+h1, h3 {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-.arena{
-    height: 20vh;
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-around;
+
+h1 {
+    height: 15vh;
 }
-footer{
-    height: 20vh;
+
+h3 {
+    height: 10vh;
+}
+
+.choice-box, .selection-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7rem;
+    width: inherit;
+}
+
+.choice-box {
+    margin-bottom: 4rem;
+}
+
+.player-name, .score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: inherit;
+    height: 3rem;
+}
+
+main > div > div > button {
+    width: 7rem;
+    height: inherit;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 1rem;
+}
+
+#rock {
+    background-image: url(/assets/images/rock.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#paper {
+    background-image: url(/assets/images/paper.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#scissor {
+    background-image: url(/assets/images/scissors.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image {
+    height: inherit;
+    width: 7rem;
+}
+.image-icon {
+    width: inherit;
+    height: inherit;
+}
+
+.player-name > div, .score > div {
+    width: 7rem;
     text-align: center;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+
+.result {
+    text-align: center;
+    height: 3rem;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+
+.result-screen {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.winner {
+    height: 8rem;
+    font-size: 5rem;
+    font-family: sans-serif;
+}
+
+.newgame {
+    width: 10rem;
+    height: 3rem;
+    border-radius: 2rem;
+    background: linear-gradient(to right, blue, pink);
+}
+
+button:hover {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+    cursor: pointer;
+  }
+  
+  button:active {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+    transform: scale(.9);
+  }
+  
+/* for screen-width 320px or less (extremely small screen width) */
+@media screen and (max-width:320px) {
+    .container{
+        width: 19rem;
+    }
+
+    .choice-box > button {
+        width: 6rem;
+        height: 6rem;
+    }
 }
