@@ -57,7 +57,8 @@ main > div > div > button {
     width: 7rem;
     height: inherit;
     background-color: black;
-    border: 1px solid white;
+    border: 2px solid white;
+    border-radius: 1rem;
 }
 
 #rock {
@@ -135,6 +136,7 @@ button:hover {
   
   button:active {
     box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+    transform: scale(.9);
   }
   
 /* for screen-width 320px or less (extremely small screen width) */
