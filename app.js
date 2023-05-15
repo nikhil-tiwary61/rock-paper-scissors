@@ -1,3 +1,5 @@
+const gameWinSong = new Audio("assets/audio/victory.mp3");
+const gameLoseSong = new Audio("assets/audio/lose.mp3");
 const choices = ["rock", "paper", "scissor"];
 const drawMessage = "It's a draw";
 const invalidMessage = "Invalid Input";
@@ -40,10 +42,11 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function displayMessage() {
+function displayMessage(win) {
   let message = `<div class="result-screen"><div class="winner">${winningMessage}</div>
   <div><button class="newgame">NEW GAME</button></div></div>`;
   document.body.innerHTML = message;
+  win ? gameWinSong.play() : gameLoseSong.play();
   document.querySelector(".newgame").addEventListener("click", pageReload);
 }
 
@@ -59,24 +62,24 @@ function game(e) {
   //Display player's choice
   if (playerSelection == "rock") {
     document.querySelector(".playerDecision").innerHTML =
-      "<img class='image-icon' src='./assets/rock.png' alt='Rock'>";
+      "<img class='image-icon' src='./assets/images/rock.png' alt='Rock'>";
   } else if (playerSelection == "paper") {
     document.querySelector(".playerDecision").innerHTML =
-      "<img class='image-icon' src='./assets/paper.png' alt='Paper'>";
+      "<img class='image-icon' src='./assets/images/paper.png' alt='Paper'>";
   } else if (playerSelection == "scissor") {
     document.querySelector(".playerDecision").innerHTML =
-      "<img class='image-icon' src='./assets/scissors.png' alt='Scissors'>";
+      "<img class='image-icon' src='./assets/images/scissors.png' alt='Scissors'>";
   }
   //Display computer's choice
   if (computerSelection == "rock") {
     document.querySelector(".computerDecision").innerHTML =
-      "<img class='image-icon' src='./assets/rock.png' alt='Rock'>";
+      "<img class='image-icon' src='./assets/images/rock.png' alt='Rock'>";
   } else if (computerSelection == "paper") {
     document.querySelector(".computerDecision").innerHTML =
-      "<img class='image-icon' src='./assets/paper.png' alt='Paper'>";
+      "<img class='image-icon' src='./assets/images/paper.png' alt='Paper'>";
   } else if (computerSelection == "scissor") {
     document.querySelector(".computerDecision").innerHTML =
-      "<img class='image-icon' src='./assets/scissors.png' alt='Scissors'>";
+      "<img class='image-icon' src='./assets/images/scissors.png' alt='Scissors'>";
   }
   document.querySelector(".result").innerHTML = playRound(
     playerSelection,
@@ -86,11 +89,19 @@ function game(e) {
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
 
-  winningMessage =
-    Math.max(playerScore, computerScore) == 5 && playerScore == 5
-      ? "YAY! You win."
-      : "You lose";
-  Math.max(playerScore, computerScore) == 5 ? displayMessage() : null;
+  let win;
+  if (Math.max(playerScore, computerScore) == 5 && playerScore == 5) {
+    winningMessage = `YAY! You win`;
+    win = true;
+  } else {
+    winningMessage = `You lose`;
+    win = false;
+  }
+  // winningMessage =
+  //   Math.max(playerScore, computerScore) == 5 && playerScore == 5
+  //     ? "YAY! You win."
+  //     : "You lose";
+  Math.max(playerScore, computerScore) == 5 ? displayMessage(win) : null;
 }
 
 const buttons = document.querySelectorAll("button");
