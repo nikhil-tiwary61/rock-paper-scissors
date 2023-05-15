@@ -9,6 +9,9 @@ let playerSelection,
   computerScore = 0,
   winningMessage = "";
 
+const playerTile = document.querySelector(".playerDecision");
+const computerTile = document.querySelector(".computerDecision");
+
 function getComputerChoice() {
   let choiceIndex = Math.floor(Math.random() * 3);
   return choices[choiceIndex];
@@ -57,34 +60,35 @@ function pageReload(e) {
 function game(e) {
   playerSelection = getPlayerChoice(this);
   computerSelection = getComputerChoice();
-  document.querySelector(".playerDecision").innerHTML = playerSelection;
-  document.querySelector(".computerDecision").innerHTML = computerSelection;
+  playerTile.innerHTML = playerSelection;
+  computerTile.innerHTML = computerSelection;
   //Display player's choice
   if (playerSelection == "rock") {
-    document.querySelector(".playerDecision").innerHTML =
+    playerTile.innerHTML =
       "<img class='image-icon' src='./assets/images/rock.png' alt='Rock'>";
   } else if (playerSelection == "paper") {
-    document.querySelector(".playerDecision").innerHTML =
+    playerTile.innerHTML =
       "<img class='image-icon' src='./assets/images/paper.png' alt='Paper'>";
   } else if (playerSelection == "scissor") {
-    document.querySelector(".playerDecision").innerHTML =
+    playerTile.innerHTML =
       "<img class='image-icon' src='./assets/images/scissors.png' alt='Scissors'>";
   }
   //Display computer's choice
   if (computerSelection == "rock") {
-    document.querySelector(".computerDecision").innerHTML =
+    computerTile.innerHTML =
       "<img class='image-icon' src='./assets/images/rock.png' alt='Rock'>";
   } else if (computerSelection == "paper") {
-    document.querySelector(".computerDecision").innerHTML =
+    computerTile.innerHTML =
       "<img class='image-icon' src='./assets/images/paper.png' alt='Paper'>";
   } else if (computerSelection == "scissor") {
-    document.querySelector(".computerDecision").innerHTML =
+    computerTile.innerHTML =
       "<img class='image-icon' src='./assets/images/scissors.png' alt='Scissors'>";
   }
   document.querySelector(".result").innerHTML = playRound(
     playerSelection,
     computerSelection
   );
+
   //Updates score
   document.querySelector(".playerScore").innerHTML = playerScore;
   document.querySelector(".computerScore").innerHTML = computerScore;
@@ -97,10 +101,6 @@ function game(e) {
     winningMessage = `You lose`;
     win = false;
   }
-  // winningMessage =
-  //   Math.max(playerScore, computerScore) == 5 && playerScore == 5
-  //     ? "YAY! You win."
-  //     : "You lose";
   Math.max(playerScore, computerScore) == 5 ? displayMessage(win) : null;
 }
 

@@ -29,6 +29,7 @@ h1, h3 {
 h1 {
     height: 15vh;
 }
+
 h3 {
     height: 10vh;
 }
@@ -64,7 +65,6 @@ main > div > div > button {
 #rock {
     background-image: url(/assets/images/rock.png);
     background-position: center;
-    /* background-color: white; */
     background-repeat: no-repeat;
     background-size: cover;
 }
