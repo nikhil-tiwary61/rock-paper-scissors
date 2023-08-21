@@ -66,21 +66,21 @@ main > div > div > button {
 }
 
 #rock {
-  background-image: url(./assets/images/rock.png);
+  /* background-image: url(./assets/images/rock.png); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #paper {
-  background-image: url(./assets/images/paper.png);
+  /* background-image: url(./assets/images/paper.png); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #scissor {
-  background-image: url(./assets/images/scissors.png);
+  /* background-image: url(./assets/images/scissors.png); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
